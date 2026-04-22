@@ -1,73 +1,43 @@
-# React + TypeScript + Vite
+# MovieDB Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A movie discovery website for my Web Programming course using React, TypeScript, and [The Movie Database API](https://developer.themoviedb.org/reference/getting-started). You can view popular movies and TV shows and search based on title, director, or genre. You can also see the trailers for movies and TV shows where trailers are available by clicking on the "play" button on a card.
 
-Currently, two official plugins are available:
+![Search for movies containing "project"](search-movie-title.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Local setup
 
-## React Compiler
+Request your own API key from The Movie Database by [creating an account](https://www.themoviedb.org/signup) and filling out the form [here](https://www.themoviedb.org/settings/api).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+### Clone project
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/Infinity-MaxX/MovieDB-Project.git
+cd MovieDB-Project
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm install
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Store local API key
+
+Bash
+
+```bash
+echo "VITE_TMDB_API_KEY=<your_api_key>" > .env
+```
+
+PowerShell
+
+```PowerShell
+Write-Output "VITE_TMDB_API_KEY=<your_api_key>" | Out-File .env
+```
+
+### Run development build
+
+```
+npm run dev
 ```
